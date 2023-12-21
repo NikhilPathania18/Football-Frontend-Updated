@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getNewsById } from '../api/news'
+import { useParams } from 'react-router-dom'
 
-const news = {
-    title: 'What to look out for in the Champions League round of 16',
-    date: new Date('2023-12-19'),
-    image: '/maxresdefault-1.jpg',
-    paragraphs: [
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.',
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.',
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.',
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.'
-    ]
-}
+// const news = {
+//     title: 'What to look out for in the Champions League round of 16',
+//     date: new Date('2023-12-19'),
+//     image: '/maxresdefault-1.jpg',
+//     paragraphs: [
+//         'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.',
+//         'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.',
+//         'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.',
+//         'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.'
+//     ]
+// }
 
 const getMonth = (month) => {
     if(month===1)   return "January"
@@ -46,15 +48,41 @@ const decorateDate = (date) => {
 }
 
 const SingleNews = () => {
+
+    const {id} = useParams()
+    const [news, setNews] = useState({
+        title: '',
+        image: '',
+        paragraphs: [],
+        date: new Date()
+    });
+
+    useEffect(()=>{
+        const fetchData = async(id) => {
+            try {
+                console.log('id',id)
+                let {data} = await getNewsById(id);
+                
+                data.news.date = new Date(data.news.date)
+                setNews(data.news);
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        if(id)
+        fetchData(id);
+    },[id])
+
   return (
     <div className='my-10 md:mx-20 mx-5 md:mr-[200px] lg:mr-[300px] sm:mr-[100px] sm:mx-14'>
-        <h1 className=" text-2xl md:text-4xl font-bold text-left text-blue-950">{news.title}</h1>
+        <h1 className="font-championsregular text-3xl md:text-5xl font-bold text-left text-blue-950">{news.title}</h1>
         <p className="text-gray-500 text-left sm:text-2xl text-xl my-10">{decorateDate(news.date)}</p>
         <div className="news">
             {
                 news.image&&
-                <div className="w-full">
-                    <img src={news.image} alt="" />
+                <div className="w-full flex ">
+                    <img src={news?.image} alt="" style={{maxHeight:"500px"}} />
                 </div>
             }
             {

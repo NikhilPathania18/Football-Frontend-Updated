@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getTeamById } from "../api/teams";
+import { useParams } from "react-router-dom";
+import decorateName from "../helpers/decorateName";
 
 const teamDetails = {
   name: "Real Madrid CF",
@@ -60,25 +63,50 @@ const teamDetails = {
 };
 
 const SingleTeam = () => {
+  const [teamDetails, setTeamDetails] = useState({
+    name: "",
+    numberOfMatches: 0,
+    wins: 0,
+    draw: 0,
+    loses: 0,
+    logo: "",
+    players: []
+  });
+
+  const {id} = useParams()
+
+  useEffect(()=>{
+    const fetchData = async(id) => {
+      try {
+        const {data} = await getTeamById(id);
+        setTeamDetails(data.teamDetails)
+        console.log(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    if(id)  fetchData(id);
+  },[id])
   return (
     <div className="bg-white mx-3 lg:mx-[250px] boder-solid border my-10 rounded-md">
       <h1 className="text-3xl md:text-5xl font-semibold text-blue-950 md:text-left p-10">
-        {teamDetails.name}
+        {decorateName(teamDetails.name + " FC")}
       </h1>
       <div className="md:flex">
         <div className="md:w-[30%] w-[80%] mb-4 md:mb-0 flex mx-auto justify-center">
-          <img src={teamDetails.logo} alt="" width={"100%"} className=""  />
+          <img src={teamDetails?.logo} alt="" width={"100%"} className="" />
         </div>
         <div className="second grid md:grid-cols-4 grid-cols-2 items-center">
           <div className="p-5">
             <h2 className="text-blue-950 text-7xl font-bold">
-              {teamDetails.matches}
+              {teamDetails.numberOfMatches}
             </h2>
             <p className="text-blue-950 text-2xl ">Matches</p>
           </div>
           <div className="p-5">
             <h2 className="text-blue-950 text-7xl font-bold">
-              {teamDetails.win}
+              {teamDetails.wins}
             </h2>
             <p className="text-blue-950 text-2xl ">Wins</p>
           </div>
@@ -90,7 +118,7 @@ const SingleTeam = () => {
           </div>
           <div className="m-5">
             <h2 className="text-blue-950 text-7xl font-bold">
-              {teamDetails.lost}
+              {teamDetails.loses}
             </h2>
             <p className="text-blue-950 text-2xl ">Lost</p>
           </div>
@@ -107,13 +135,13 @@ const SingleTeam = () => {
                 className="flex items-center my-2 border-solid border-b pb-3"
                 key={index}
               >
-                <div className="w-[15%] overflow-hidden">
-                <img src={player.image} alt=""  />
+                <div className="w-[15%] overflow-hidden ">
+                  <img src={'/profile-icon.png'} alt="" className="rounded-[50%]"/>
                 </div>
                 <div className="px-5 text-left  ">
-                  <h2 className="text-gray-600 text-2xl">{player.name}</h2>
+                  <h2 className="text-gray-600 text-2xl">{decorateName(player.name)}</h2>
                   <p className="text-gray-400 text-sm italic">
-                    {player.position}
+                    {decorateName(player.position)}
                   </p>
                 </div>
               </div>

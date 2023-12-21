@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SingleMatch from "./SingleMatch";
+import { getLatestTournamentMatches } from "../api/matches";
 
 const matchesList = [
   {
@@ -95,6 +96,22 @@ const matchesList = [
 ];
 
 const Matches = () => {
+
+  const [matchesList, setMatchesList] = useState([])
+
+  useEffect(()=>{
+    const fetchData = async() => {
+      try {
+        const {data} = await getLatestTournamentMatches();
+
+        setMatchesList(data.matches)
+        console.log(data);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData();
+  },[])
   return (
     <>
       <h1 className="md:text-5xl font-bold bg-[#f1f3f8] text-left p-10 pb-0 text-3xl text-blue-950">
@@ -103,13 +120,26 @@ const Matches = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3  grid-cols-1 gap-4 m:p-10 bg-[#f1f3f8] p-5">
         {matchesList.map((match, index) => (
           <SingleMatch
-            title={match.title}
+            title={match.matchName}
             teamA={match.teamA}
             teamB={match.teamB}
             teamAScore={match.teamAScore}
             teamBScore={match.teamBScore}
-            date={match.date}
+            date={new Date(match.date)}
             time={match.time}
+            teamAPenalties={match.teamAPenalties}
+            teamBPenalties={match.teamBPenalties}
+            status={match.status}
+            // status={"ongoing"}
+            // currentStatus={"firstHalf"}
+            currentStatus={match.currentStatus}
+            halfLength={match.halfLength}
+            firstHalfStartTime={match.firstHalfStartTime}
+            secondHalfStartTime={match.secondHalfStartTime}
+            extraTimeHalfLength={match.extraTimeHalfLength}
+            extraTimeFirstHalfStartTime={match.extraTimeFirstHalfStartTime}
+            extraTimeSecondHalfStartTime={match.extraTimeSecondHalfStartTime}
+            key={index}
           />
         ))}
       </div>

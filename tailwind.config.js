@@ -2,7 +2,13 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        championsregular: ['Champions Regular', 'sans'],
+        championslight: ['Champions Light', 'sans'],
+        championsbold: ['Champions', 'sans'],
+      },
+    },
   },
   plugins: [],
 }

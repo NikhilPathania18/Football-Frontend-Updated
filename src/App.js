@@ -11,13 +11,15 @@ function App() {
   return (
     <div className="App">
         <Main>
-          <SingleNews />
-          {/* <Routes>
+          {/* <SingleNews /> */}
+          <Routes>
             <Route path="/" element={<News />} />
+            <Route path="/news/:id" element={<SingleNews />} />
+            <Route path="/team/:id" element={<SingleTeam />} />
             <Route path="/matches" element={<Matches />} />
             <Route path="/groups" element={<Groups />} />
             <Route path="/teams" element={<Teams />} />
-          </Routes> */}
+          </Routes>
         </Main>
     </div>
   );

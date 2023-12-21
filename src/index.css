@@ -1,3 +1,7 @@
+/* @import url('./fonts/Champions-Bold.ttf'); */
+/* @import url('./fonts/Champions-Regular.ttf'); */
+/* @import url('./fonts/Champions-Light.ttf'); */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,4 +19,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} 

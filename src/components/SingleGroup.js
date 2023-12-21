@@ -4,7 +4,7 @@ const SingleGroup = ({ title, teams }) => {
   return (
     <div className="flex flex-col border-solid border rounded-lg bg-white max-w-6xl mb-5 w-[100%]">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className=" min-w-full py-2 sm:px-6 lg:px-8">
+        <div className=" min-w-full pt-2 sm:px-6 lg:px-8 pb-0">
           <div className="">
             <p className="text-3xl text-left text-blue-950 px-10 font-semibold mt-3">
               {title}
