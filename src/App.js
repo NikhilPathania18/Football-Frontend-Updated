@@ -7,6 +7,8 @@ import Main from "./Layout/Main";
 import SingleTeam from "./components/SingleTeam";
 import Teams from "./components/Teams";
 import SingleNews from "./components/SingleNews";
+import MatchDetails from "./components/MatchDetails";
+import SinglePlayer from "./components/SinglePlayer";
 function App() {
   return (
     <div className="App">
@@ -16,10 +18,12 @@ function App() {
             <Route path="/" element={<News />} />
             <Route path="/news/:id" element={<SingleNews />} />
             <Route path="/team/:id" element={<SingleTeam />} />
+            <Route path="/match/:id" element={<MatchDetails />} />
             <Route path="/matches" element={<Matches />} />
             <Route path="/groups" element={<Groups />} />
             <Route path="/teams" element={<Teams />} />
-          </Routes>
+            <Route path="/player/:id" element={<SinglePlayer />} />
+          </Routes> 
         </Main>
     </div>
   );

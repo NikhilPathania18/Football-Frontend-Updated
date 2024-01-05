@@ -2,18 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { getNewsById } from '../api/news'
 import { useParams } from 'react-router-dom'
 
-// const news = {
-//     title: 'What to look out for in the Champions League round of 16',
-//     date: new Date('2023-12-19'),
-//     image: '/maxresdefault-1.jpg',
-//     paragraphs: [
-//         'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.',
-//         'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.',
-//         'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.',
-//         'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium saepe voluptates velit similique fuga facere voluptate, sunt provident, dolorem odio placeat consectetur mollitia totam eius veniam voluptatem doloremque quibusdam maiores. Dolores ipsum similique consectetur voluptate iure reiciendis laboriosam! Fugiat hic laborum atque nisi amet dolor, recusandae sit rerum voluptate omnis ex magnam ducimus iusto repellendus quod minus quos, maxime tenetur distinctio error, vel aliquid quisquam sint? Illo consequatur fuga dolor laboriosam hic quam pariatur praesentium incidunt, distinctio illum doloribus reiciendis corporis. Sapiente, velit consectetur! Nisi, recusandae quis quos nesciunt eveniet molestiae quaerat illo! Veniam cumque magnam accusantium voluptate. Est, iure.'
-//     ]
-// }
-
 const getMonth = (month) => {
     if(month===1)   return "January"
     if(month===2)   return "February"

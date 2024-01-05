@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getTeamById } from "../api/teams";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import decorateName from "../helpers/decorateName";
 
 const teamDetails = {
@@ -63,6 +63,9 @@ const teamDetails = {
 };
 
 const SingleTeam = () => {
+
+  const navigate = useNavigate()
+
   const [teamDetails, setTeamDetails] = useState({
     name: "",
     numberOfMatches: 0,
@@ -88,8 +91,10 @@ const SingleTeam = () => {
 
     if(id)  fetchData(id);
   },[id])
+
+
   return (
-    <div className="bg-white mx-3 lg:mx-[250px] boder-solid border my-10 rounded-md">
+    <div className="bg-white mx-3 lg:mx-[200px] boder-solid border my-10 rounded-md">
       <h1 className="text-3xl md:text-5xl font-semibold text-blue-950 md:text-left p-10">
         {decorateName(teamDetails.name + " FC")}
       </h1>
@@ -132,8 +137,9 @@ const SingleTeam = () => {
           <div className="grid md:grid-cols-2 grid-cols-1">
             {teamDetails.players.map((player, index) => (
               <div
-                className="flex items-center my-2 border-solid border-b pb-3"
+                className="flex items-center my-2 border-solid border-b pb-3 hover:cursor-pointer"
                 key={index}
+                onClick={()=>{navigate(`/player/${player._id}`)}}
               >
                 <div className="w-[15%] overflow-hidden ">
                   <img src={'/profile-icon.png'} alt="" className="rounded-[50%]"/>

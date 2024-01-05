@@ -1,6 +1,7 @@
 import React from "react";
 import calculateTime from '../helpers/calculateTime'
 import decorateName from "../helpers/decorateName";
+import { useNavigate } from "react-router-dom";
 
 
 const SingleMatch = ({
@@ -20,13 +21,16 @@ const SingleMatch = ({
   secondHalfStartTime,
   extraTimeHalfLength,
   extraTimeFirstHalfStartTime,
-  extraTimeSecondHalfStartTime
+  extraTimeSecondHalfStartTime,
+  id
 }) => {
 
   const arePenalties = teamAPenalties > 0 || teamBPenalties > 0;
+
+  const navigate = useNavigate();
   return (
-    <div className="p-4 border-solid border rounded-lg bg-white text-gray-600 flex flex-col justify-center">
-      <p className="text-gray-600 text-left">{title}</p>
+    <div className="p-4 border-solid border rounded-lg bg-white text-gray-600 flex flex-col justify-center hover:bg-[#f0f3f8] hover:cursor-pointer" onClick={()=>{navigate(`/match/${id}`)}}>
+      <p className="text-gray-600 text-left">{title}</p> 
       <div className="flex w-full ">
         <div className="flex flex-col w-[65%] mr-8">
           <div className="flex justify-between  items-center">

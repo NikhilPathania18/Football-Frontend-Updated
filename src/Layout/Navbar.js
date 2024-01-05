@@ -20,10 +20,10 @@ export default function Navbar() {
   ];
 
   return (
-    <Disclosure as="nav" className="bg-blue-950">
+    <Disclosure as="nav" className="bg-[#000040]">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -55,7 +55,7 @@ export default function Navbar() {
                         to={item.href}
                         className={classNames(
                           item.current ? 'bg-teal-400 text-blue-950' : 'text-white  hover:text-teal-400',
-                          'rounded-full px-3 py-2 text-xl font-semibold'
+                          'rounded-full px-3 py-2 text-xl font-semibold font-championslight'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -78,7 +78,7 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.current ? ' text-teal-400' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
+                    'block rounded-md px-3 py-2 text-base font-medium font-championslight'
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >

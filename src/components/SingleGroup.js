@@ -1,4 +1,5 @@
 import React from "react";
+import decorateName from "../helpers/decorateName";
 
 const SingleGroup = ({ title, teams }) => {
   return (
@@ -46,13 +47,13 @@ const SingleGroup = ({ title, teams }) => {
               </thead>
               <tbody>
                 {teams.map((team, index) => (
-                  <tr className="border-b font-medium text-gray-600 mx-5">
+                  <tr className="border-b font-medium text-gray-600 mx-5 " key={index}>
                     <td className="whitespace-nowrap px-6 py-4 font-medium">
                       {index + 1}
                     </td>
                     <td className="whitespace-nowrap px-6 py-4 text-center flex items-center">
-                        <img src={team.logo} alt="" width={"20px"} className="mr-4"/>
-                      {team.name}
+                        <img src={team?.team?.logo} alt="" width={"30px"} className="mr-4"/>
+                      {decorateName(team?.team?.name)}
                     </td>
                     <td className="whitespace-nowrap px-3 md:px-6 py-4 text-center">
                       {team.matches}
