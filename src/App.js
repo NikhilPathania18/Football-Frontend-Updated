@@ -9,6 +9,7 @@ import Teams from "./components/Teams";
 import SingleNews from "./components/SingleNews";
 import MatchDetails from "./components/MatchDetails";
 import SinglePlayer from "./components/SinglePlayer";
+import Stats from './components/Stats';
 function App() {
   return (
     <div className="App">
@@ -23,6 +24,7 @@ function App() {
             <Route path="/groups" element={<Groups />} />
             <Route path="/teams" element={<Teams />} />
             <Route path="/player/:id" element={<SinglePlayer />} />
+            <Route path="/stats" element={<Stats />} />
           </Routes> 
         </Main>
     </div>

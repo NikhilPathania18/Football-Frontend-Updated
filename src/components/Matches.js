@@ -26,7 +26,7 @@ const Matches = () => {
   }, []);
   return (
     <>
-      <h1 className="md:text-5xl font-bold bg-[#f1f3f8] text-left p-10 pb-0 text-3xl text-blue-950">
+      <h1 className="md:text-5xl font-championsbold font-bold bg-[#f1f3f8] text-left p-10 pb-0 text-4xl text-blue-950">
         Fixtures & Results
       </h1>
       {loading ? (

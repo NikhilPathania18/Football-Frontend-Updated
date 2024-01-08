@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        championsregular: ['Champions Regular', 'sans'],
+        championsregular: ['Champions Regular', 'sans-serif'],
         championslight: ['Champions Light', 'sans'],
         championsbold: ['Champions', 'sans'],
       },

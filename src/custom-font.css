@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Champions Regular';
+    src: url('fonts/Champions-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Champions Light';
+    src: url('fonts/Champions-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Champions';
+    src: url('fonts/Champions-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
