@@ -35,7 +35,7 @@ const News = () => {
 
   return (
     <div
-      className="flex flex-col lg:flex-row py-10 items-center lg:items-start flow-column px-5 "
+      className="flex flex-col lg:flex-row py-10 items-center lg:items-start flow-column px-5 min-h-screen"
       style={{ backgroundImage: "url(/newsBackground.webp)" }}
     >
       <div className={`w-full lg:w-[60%] md:mx-5 lg:mx-20 border py-16 bg-[#000040]  border-blue-700 border-solid  rounded-lg relative overflow-hidden my-5 hover:cursor-pointer ${(loading || topNews)? 'block' : "hidden" } overflow-hidden`}>
