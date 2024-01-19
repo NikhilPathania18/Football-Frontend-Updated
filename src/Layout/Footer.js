@@ -37,7 +37,7 @@ const Footer = () => {
       <div className=" p-8 md:p-20 text-white font-championsregular flex flex-col md:flex-row justify-between w-full">
         <div className="flex justify-between w-full md:border-r ">
           <img
-            src="/socials/inter-year-logo-white.png"
+            src="/socials/INTER-YEAR-LOGO-WHITE.png"
             className="max-w-[100px] aspect-auto"
             alt=""
           />
