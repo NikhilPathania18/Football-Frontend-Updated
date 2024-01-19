@@ -5,8 +5,9 @@ module.exports = {
     extend: {
       fontFamily: {
         championsregular: ['Champions Regular', 'sans-serif'],
-        championslight: ['Champions Light', 'sans'],
-        championsbold: ['Champions', 'sans'],
+        championslight: ['Champions Light', 'sans-serif'],
+        championsbold: ['Champions', 'sans-serif'],
+        cabin: ['Cabin', 'sans-serif']
       },
     },
   },

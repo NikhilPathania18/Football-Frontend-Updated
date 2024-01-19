@@ -38,7 +38,7 @@ const News = () => {
       className="flex flex-col lg:flex-row py-10 items-center lg:items-start flow-column px-5 min-h-screen"
       style={{ backgroundImage: "url(/newsBackground.webp)" }}
     >
-      <div className={`w-full lg:w-[60%] md:mx-5 lg:mx-20 border py-16 bg-[#000040]  border-blue-700 border-solid  rounded-lg relative overflow-hidden my-5 hover:cursor-pointer ${(loading || topNews)? 'block' : "hidden" } overflow-hidden`}>
+      <div className={`w-full lg:w-[70%] md:mx-5 border  bg-[#000040]  border-blue-700 border-solid  rounded-lg relative overflow-hidden my-5 hover:cursor-pointer ${(loading || topNews)? 'block' : "hidden" } overflow-hidden`}>
         {loading ? (
           <Spinner color={"white"} size={100} className={"my-20 block"} />
         ) : (
@@ -50,13 +50,13 @@ const News = () => {
                 alt=""
               />
             </Link>
-            <div className="bg-[#000040] my-1 font-championsbold absolute bottom-0 overflow-hidden z-10 text-white  md:text-3xl p-2 md:p-5 md:pb-1 w-full text-left text-base">
+            <div className="bg-gradient-to-t from-gray-800 to-transparent font-cabin absolute bottom-0 overflow-hidden z-10 text-white  md:text-3xl p-2 md:p-5 md:pb-1 w-full text-left text-base">
               <Link to={`/news/${topNews?._id}`}>{topNews?.title}</Link>
             </div>
           </>
         )}
       </div>
-      <div className="w-full lg:w-[40%] md:mx-5 lg:mx-20 lg:border lg:border-blue-600 lg:bg-blue-950/50 border-solid h-full rounded-lg text-white  my-5 pb-4">
+      <div className="w-full lg:w-[40%] md:mx-5 lg:border lg:border-blue-600 lg:bg-blue-950/50 border-solid h-full rounded-lg text-white  my-5 pb-4">
         <p className="hidden lg:block font-championsregular text-2xl md:text-3xl text-white font-semibold text-left m-3 py-1">
           Headlines
         </p>
@@ -72,7 +72,7 @@ const News = () => {
                   href={item._id}
                 />
                 {index !== highlights.length - 1 && (
-                  <div className="mx-5 border-solid border-t-2"></div>
+                  <div className="md:mx-5 border-solid border-t-2 border-white border-opacity-20"></div>
                 )}
               </React.Fragment>
             ))}
