@@ -50,7 +50,7 @@ const News = () => {
                 alt=""
               />
             </Link>
-            <div className=" my-1 font-championsbold absolute bottom-0 overflow-hidden z-10 text-white  md:text-3xl p-2 md:p-5 md:pb-1 w-full text-left text-base">
+            <div className="bg-[#000040] my-1 font-championsbold absolute bottom-0 overflow-hidden z-10 text-white  md:text-3xl p-2 md:p-5 md:pb-1 w-full text-left text-base">
               <Link to={`/news/${topNews?._id}`}>{topNews?.title}</Link>
             </div>
           </>
