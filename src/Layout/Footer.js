@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 const list = [
   { title: "Matches", href: "/matches" },
   { title: "Groups", href: "/groups" },
-  { title: "Stats", href: "/stats" },
+  // { title: "Stats", href: "/stats" },
   { title: "Teams", href: "/teams" },
 ];
 
@@ -76,7 +76,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="text-white opacity-50 font-championsregular">All Rights Reserved <span className="mx-2">©Nikhil Pathania</span></p>
+      <p className="text-white opacity-50 font-championsregular"> 2024 NIT Hamirpur Football | Created by Nikhil Pathania<span className="mx-2"></span></p>
     </div>
   );
 };

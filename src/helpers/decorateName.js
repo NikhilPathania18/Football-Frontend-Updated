@@ -1,5 +1,5 @@
 const decorateName = (inputString) => {
-    if (!inputString) return;
+    if (!inputString || inputString === undefined) return "";
     const words = inputString.split(" ");
   
     const capitalizedWords = words.map((word) => {

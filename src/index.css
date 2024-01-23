@@ -25,3 +25,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } 
+
+/* #news{
+
+}
+
+@media (min-width: 1024px) {
+  #news{
+    background-image: url('/newsBackground.webp');
+  }
+} */

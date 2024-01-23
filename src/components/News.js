@@ -9,6 +9,22 @@ import Spinner from "./Spinner";
 const News = () => {
   const navigate = useNavigate();
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+useEffect(() => {
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  window.addEventListener('resize', handleResize);
+
+  // Cleanup the event listener on component unmount
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, []);
+
+
   const [highlights, setHighlights] = useState([]);
 
   const [topNews, setTopNews] = useState(null);
@@ -33,10 +49,13 @@ const News = () => {
     fetchData();  
   }, []);
 
+  const backgroundUrl = windowWidth > 600 ? "/newsBackground.webp" : "/newsBackground-mobile.webp";
+
   return (
     <div
-      className="flex flex-col lg:flex-row py-10 items-center lg:items-start flow-column px-5 min-h-screen"
-      style={{ backgroundImage: "url(/newsBackground.webp)" }}
+      className="flex flex-col lg:flex-row py-5 lg:py-10 items-center lg:items-start flow-column px-5 min-h-screen bg-cover"
+      id="news"
+      style={{ backgroundImage: `url(${backgroundUrl})` }}
     >
       <div className={`w-full lg:w-[70%] md:mx-5 border  bg-[#000040]  border-blue-700 border-solid  rounded-lg relative overflow-hidden my-5 hover:cursor-pointer ${(loading || topNews)? 'block' : "hidden" } overflow-hidden`}>
         {loading ? (

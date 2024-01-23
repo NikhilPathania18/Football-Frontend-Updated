@@ -31,7 +31,6 @@ const SinglePlayer = () => {
     if (id) fetchData(id);
   }, [id]);
 
-  console.log(playerDetails);
   return loading ? (
     <Spinner size={150} color={"blue"} className={"p-20"} />
   ) : (
