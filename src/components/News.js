@@ -5,6 +5,7 @@ import { fetchNews } from "../api/news";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Spinner from "./Spinner";
+import MatchesCarausel from "./MatchesCarausel";
 
 const News = () => {
   const navigate = useNavigate();

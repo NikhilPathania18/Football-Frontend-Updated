@@ -3,6 +3,8 @@ import SingleMatch from "./SingleMatch";
 import { getLatestTournamentMatches } from "../api/matches";
 import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
+import MatchesCarausel from "./MatchesCarausel";
+
 
 const Matches = () => {
   const [matchesList, setMatchesList] = useState([]);
@@ -13,9 +15,9 @@ const Matches = () => {
       try {
         setLoading(true);
         const { data } = await getLatestTournamentMatches();
-
-        setMatchesList(data.matches);
-        console.log(data);
+        let matches = data.matches
+        matches.reverse();
+        setMatchesList(matches);
       } catch (error) {
         console.log(error);
       } finally {
@@ -24,8 +26,19 @@ const Matches = () => {
     };
     fetchData();
   }, []);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
+
   return (
     <>
+      {/* <MatchesCarausel {...settings}/> */}
       <h1 className="md:text-5xl font-championsbold font-bold bg-[#f1f3f8] text-left p-10 pb-0 text-4xl text-blue-950">
         Fixtures & Results
       </h1>
