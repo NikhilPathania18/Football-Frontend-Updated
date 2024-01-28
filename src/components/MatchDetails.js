@@ -167,7 +167,7 @@ const MatchDetails = () => {
       <p className="text-teal-300 text-lg md:text-xl my-2 mb-0">
         {matchDetails &&
           (matchDetails.status === "upcoming"
-            ? ""
+            ? `Starts at ${decorateDate(new Date(matchDetails.date))}, ${matchDetails?.time}`
             : matchDetails.status === "ended"
             ? "Full Time"
             : matchDetails.status === "ongoing"

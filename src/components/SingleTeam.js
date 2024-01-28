@@ -4,64 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import decorateName from "../helpers/decorateName";
 import Spinner from "./Spinner";
 
-const teamDetails = {
-  name: "Real Madrid CF",
-  matches: 21,
-  win: 18,
-  draw: 2,
-  lost: 1,
-  logo: "/maxresdefault-1.jpg",
-  players: [
-    {
-      name: "Nikhil",
-      position: "Right Back",
-      matches: 5,
-      goals: 0,
-      assists: 1,
-      image: "/logo192.png",
-    },
-    {
-      name: "Nikhil Pathania",
-      position: "Defender",
-      matches: 5,
-      goals: 0,
-      assists: 1,
-      image: "/maxresdefault-1.jpg",
-    },
-    {
-      name: "Nikhil",
-      position: "Right Back",
-      matches: 5,
-      goals: 0,
-      assists: 1,
-      image: "/logo192.png",
-    },
-    {
-      name: "Nikhil",
-      position: "Right Back",
-      matches: 5,
-      goals: 0,
-      assists: 1,
-      image: "/logo192.png",
-    },
-    {
-      name: "Nikhil",
-      position: "Right Back",
-      matches: 5,
-      goals: 0,
-      assists: 1,
-      image: "/logo192.png",
-    },
-    {
-      name: "Nikhil",
-      position: "Right Back",
-      matches: 5,
-      goals: 0,
-      assists: 1,
-      image: "/logo192.png",
-    },
-  ],
-};
+
 
 const SingleTeam = () => {
   const navigate = useNavigate();

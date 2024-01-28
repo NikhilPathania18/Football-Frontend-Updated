@@ -26,7 +26,7 @@ const SingleMatch = ({
 }) => {
 
   const arePenalties = teamAPenalties > 0 || teamBPenalties > 0;
-
+  
   const navigate = useNavigate();
   return (
     <div className="p-4 border-solid border rounded-lg bg-white text-gray-600 flex flex-col justify-center hover:bg-[#f0f3f8] hover:cursor-pointer" onClick={()=>{navigate(`/match/${id}`)}}>
@@ -86,7 +86,7 @@ const SingleMatch = ({
           {status === "upcoming" && (
             <p
               className={`md:text-base ${
-                status !== "upcoming" ? "hidden" : ""
+                status !== "upcoming" ? "" : ""
               } text-sm mx-1`}
             >
               {time}
