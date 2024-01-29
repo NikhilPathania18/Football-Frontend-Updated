@@ -203,6 +203,7 @@ const MatchDetails = () => {
                 name={event.player.name}
                 time={event.time + "'"}
                 type={event.type}
+                goalType={event.goalType}
                 key={index}
               />
             ))}
