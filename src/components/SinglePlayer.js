@@ -50,7 +50,8 @@ const SinglePlayer = () => {
               }
               alt=""
               width={"100%"}
-              className=" object-cover rounded-[100%]"
+              className=" object-cover rounded-[100%] aspect-square"
+              
             />
           </div>
           <div className="second grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 items-center">

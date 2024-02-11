@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getMatchDetails } from "../api/matches";
 import { decorateDate } from "../helpers/decorateDate";
 import decorateName from "../helpers/decorateName";
@@ -8,10 +8,11 @@ import PenaltyMissed from "./svg-icons/PenaltyMissed";
 import Goal from "./svg-icons/Goal";
 import Spinner from "./Spinner";
 
-const EventComponentLeft = ({ name, time, type, goalType }) => {
+const EventComponentLeft = ({ name, time, type, goalType, playerId}) => {
+  const navigate = useNavigate();
   return (
-    <div className="flex justify-end text-sm md:text-base my-1">
-      <p className={`text-white font-championslight ml-1 md:mr-5 mr-2`}>
+    <div className="flex justify-end text-sm md:text-base my-1 "  >
+      <p className={`text-white font-championslight ml-1 md:mr-5 mr-2 hover:cursor-pointer`} onClick={()=>{navigate(`/player/${playerId}`)}}>
         {decorateName(name)}{" "}
         <span className="text-white mx-1 text-opacity-70 ">{time}</span>
         {type === "goal" && goalType === "penalty" && "(P)"}
@@ -44,7 +45,8 @@ const EventComponentLeft = ({ name, time, type, goalType }) => {
   );
 };
 
-const EventComponentRight = ({ name, time, type, goalType }) => {
+const EventComponentRight = ({ name, time, type, goalType, playerId }) => {
+  const navigate = useNavigate()
   return (
     <div className="flex justify-start text-sm md:text-base my-1">
       {type && type !== "goal" && type !== "penaltyMissed" && (
@@ -70,7 +72,7 @@ const EventComponentRight = ({ name, time, type, goalType }) => {
       ) : (
         ""
       )}
-      <p className={`text-white font-championslight ml-2 md:ml-5 mr-1`}>
+      <p className={`text-white font-championslight ml-2 md:ml-5 mr-1 hover:cursor-pointer`} onClick={()=>{navigate(`/player/${playerId}`)}}>
         {decorateName(name)}{" "}
         <span className="text-white mx-1 text-opacity-70 ">{time}</span>
         {type === "goal" && goalType === "penalty" && "(P)"}
@@ -81,6 +83,7 @@ const EventComponentRight = ({ name, time, type, goalType }) => {
 };
 
 const MatchDetails = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const [loading, setLoading] = useState(true);
@@ -102,8 +105,8 @@ const MatchDetails = () => {
         setPenalties(true);
     } catch (error) {
       console.log(error);
-    } finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -132,7 +135,12 @@ const MatchDetails = () => {
             matchDetails.matchName}
       </p>
       <div className="flex justify-center items-center">
-        <div className="w-full flex justify-end items-center ">
+        <div
+          className="w-full flex justify-end items-center hover:cursor-pointer "
+          onClick={() => {
+            navigate(`/team/${matchDetails.teamA._id}`);
+          }}
+        >
           <p className="text-white font-championsregular text-lg  md:text-3xl text-right">
             {matchDetails && decorateName(matchDetails.teamA.name)}
           </p>
@@ -153,7 +161,12 @@ const MatchDetails = () => {
           )}
           {matchDetails && <span className="">{matchDetails.teamBScore}</span>}
         </p>
-        <div className="w-full flex justify-start items-center">
+        <div
+          className="w-full flex justify-start items-center hover:cursor-pointer"
+          onClick={() => {
+            navigate(`/team/${matchDetails.teamB._id}`);
+          }}
+        >
           <img
             src={matchDetails && matchDetails.teamB.logo}
             alt=""
@@ -167,7 +180,9 @@ const MatchDetails = () => {
       <p className="text-teal-300 text-lg md:text-xl my-2 mb-0">
         {matchDetails &&
           (matchDetails.status === "upcoming"
-            ? `Starts at ${decorateDate(new Date(matchDetails.date))}, ${matchDetails?.time}`
+            ? `Starts at ${decorateDate(new Date(matchDetails.date))}, ${
+                matchDetails?.time
+              }`
             : matchDetails.status === "ended"
             ? "Full Time"
             : matchDetails.status === "ongoing"
@@ -188,6 +203,7 @@ const MatchDetails = () => {
           {matchDetails &&
             matchDetails.teamAEvents.map((event, index) => (
               <EventComponentLeft
+                playerId={event.player._id}
                 name={event.player.name}
                 time={event.time + "'"}
                 type={event.type}
@@ -200,6 +216,7 @@ const MatchDetails = () => {
           {matchDetails &&
             matchDetails.teamBEvents.map((event, index) => (
               <EventComponentRight
+                playerId={event.player._id}
                 name={event.player.name}
                 time={event.time + "'"}
                 type={event.type}

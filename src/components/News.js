@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Spinner from "./Spinner";
 import MatchesCarausel from "./MatchesCarausel";
+import MatchesSlider from "./MatchesSlider";
 
 const News = () => {
   const navigate = useNavigate();
@@ -53,6 +54,8 @@ useEffect(() => {
   const backgroundUrl = windowWidth > 600 ? "/newsBackground.webp" : "/newsBackground-mobile.webp";
 
   return (
+    <>
+    <MatchesSlider />
     <div
       className="flex flex-col lg:flex-row py-5 lg:py-10 items-center lg:items-start flow-column px-5 min-h-screen bg-cover"
       id="news"
@@ -105,6 +108,7 @@ useEffect(() => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

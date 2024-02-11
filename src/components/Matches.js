@@ -4,6 +4,7 @@ import { getLatestTournamentMatches } from "../api/matches";
 import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
 import MatchesCarausel from "./MatchesCarausel";
+import MatchesSlider from "./MatchesSlider";
 
 
 const Matches = () => {
