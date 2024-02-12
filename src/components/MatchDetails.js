@@ -17,6 +17,7 @@ const SquadList = ({
   teamBLogo,
 }) => {
   const [selectedTeam, setSelectedTeam] = useState("A");
+  const navigate = useNavigate();
   return (
     <>
       <div className="md:px-72 bg-[#F1F3F8] font-championsregular">
@@ -80,7 +81,7 @@ const SquadList = ({
           {selectedTeam === "A" ? (
             playersA.map((player, index) => (
               <>
-                <div className="flex w-full my-2 border-r border-[#DBDCE8] col-span-2 p-2 text-base md:text-lg items-center bg-white border-t border-b border-l rounded-l-lg">
+                <div className="flex w-full my-2 border-r border-[#DBDCE8] col-span-2 p-2 text-base md:text-lg items-center bg-white border-t border-b border-l rounded-l-lg hover:cursor-pointer"  onClick={()=>{navigate(`/player/${player._id}`)}}>
                   <span className="text-sm">{index+1}</span>
                   <img src={player.image ? player.image : '/profile-icon.png'} alt="" className="mx-2 aspect-square rounded-full w-[25px]" />
                   <p className="text-[#31306e] ">{player.name}</p>
@@ -109,7 +110,7 @@ const SquadList = ({
           ) : (
             playersB.map((player, index) => (
               <>
-                <div className="flex w-full my-2 border-r border-[#DBDCE8] col-span-2 p-2 text-base md:text-lg items-center bg-white border-t border-b border-l rounded-l-lg">
+                <div className="flex w-full my-2 border-r border-[#DBDCE8] col-span-2 p-2 text-base md:text-lg items-center bg-white border-t border-b border-l rounded-l-lg hover:cursor-pointer" onClick={()=>{navigate(`/player/${player._id}`)}}>
                   <span className="text-sm">{index+1}</span>
                   <img src={player.image ? player.image : '/profile-icon.png'} alt="" className="mx-2 aspect-square rounded-full w-[25px]" />
                   <p className="text-[#31306e] ">{player.name}</p>
