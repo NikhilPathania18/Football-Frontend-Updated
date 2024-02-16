@@ -6,6 +6,7 @@ const list = [
   { title: "Groups", href: "/groups" },
   // { title: "Stats", href: "/stats" },
   { title: "Teams", href: "/teams" },
+  {title: "Stats", href: "/stats"}
 ];
 
 const socials = [

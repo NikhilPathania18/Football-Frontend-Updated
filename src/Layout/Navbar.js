@@ -23,6 +23,8 @@ const Navbar = () => {
     //   ],
     // },
     { name: 'Teams', href: '/teams', current: location.pathname === '/teams' },
+    { name: 'Stats', href: '/stats', current: location.pathname === '/stats'}
+    
   ];
 
   return (
