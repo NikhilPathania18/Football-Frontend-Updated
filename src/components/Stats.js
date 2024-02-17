@@ -125,7 +125,7 @@ const Stats = () => {
           </div>
           <div className="text-white md:flex md:gap-16 grid grid-cols-2 ">
             <div className="">
-              <h2 className="font-championsbold text-3xl text-center">
+              <h2 className="font-championsbold text-3xl text-left md:text-center">
                 {tournamentStats?.teams}
               </h2>
               <p className="text-left font-championsregular text-opacity-50 text-white">
@@ -133,7 +133,7 @@ const Stats = () => {
               </p>
             </div>
             <div className="">
-              <h2 className="font-championsbold text-3xl text-center">
+              <h2 className="font-championsbold text-3xl text-left md:text-center">
                 {tournamentStats?.matches}
               </h2>
               <p className="text-left font-championsregular text-opacity-50 text-white">
@@ -141,7 +141,7 @@ const Stats = () => {
               </p>
             </div>
             <div className="">
-              <h2 className="font-championsbold text-3xl text-center">
+              <h2 className="font-championsbold text-3xl text-left md:text-center">
                 {tournamentStats?.yellowCards}
               </h2>
               <p className="text-left font-championsregular text-opacity-50 text-white flex items-center">
@@ -155,7 +155,7 @@ const Stats = () => {
               </p>
             </div>
             <div className="">
-              <h2 className="font-championsbold text-3xl text-center">
+              <h2 className="font-championsbold text-3xl text-left md:text-center">
                 {tournamentStats?.redCards}
               </h2>
               <p className="text-left font-championsregular text-opacity-50 text-white flex items-center">
