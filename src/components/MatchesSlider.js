@@ -84,7 +84,7 @@ const SingleMatch = ({
       <div className="flex justify-between mt-2">
         <div className="flex items-center">
           <img src={teamA.logo} width={"20px"} className="max-h-[20px]" />
-          <p className="text-white text-left text-sm ">
+          <p className="text-white text-left text-sm mx-2">
             {decorateName(teamA.name)}
           </p>
         </div>
@@ -95,7 +95,7 @@ const SingleMatch = ({
       <div className="flex justify-between my-1">
         <div className="flex items-center">
           <img src={teamB.logo} width={"20px"} className="max-h-[20px]" />
-          <p className="text-white  text-left text-sm ">
+          <p className="text-white  text-left text-sm mx-2">
             {decorateName(teamB.name)}
           </p>
         </div>
