@@ -77,7 +77,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="text-white opacity-50 font-championsregular"> 2024 NIT Hamirpur Football | Created by Nikhil Pathania<span className="mx-2"></span></p>
+      <p className="text-white opacity-50 font-championsregular"> 2024 NIT Hamirpur Football | Created by Abhishek Chauhan<span className="mx-2"></span></p>
     </div>
   );
 };
