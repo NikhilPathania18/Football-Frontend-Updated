@@ -239,12 +239,14 @@ const MatchDetails = () => {
 
   const [matchDetails, setMatchDetails] = useState(null);
 
+  console.log(matchDetails) 
+
   const [penalties, setPenalties] = useState(false);
 
   const fetchData = async (id) => {
     try {
       const { data } = await getMatchDetails(id);
-      console.log(data);
+      console.log('data', data);
       setMatchDetails(data.matchDetails);
 
       if (
@@ -261,9 +263,11 @@ const MatchDetails = () => {
 
   useEffect(() => {
     if (id) {
-      fetchData(id);
+      console.log(matchDetails?.status)
 
       const intervalId = setInterval(() => {
+        
+      if(matchDetails && matchDetails.status !== "ended") fetchData(id);
         fetchData(id);
       }, 10000);
 
